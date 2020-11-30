@@ -1,0 +1,24 @@
+.battle {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.battle > div {
+  text-align: center;
+}
+
+.battle > div img {
+  height: 200px;
+}
+
+.battlelog {
+  text-align: center;
+  list-style-type: none;
+}
+
+footer {
+  text-align: center;
+}
+/*# sourceMappingURL=battle.css.map */
