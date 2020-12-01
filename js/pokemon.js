@@ -16,5 +16,12 @@ const pokemon = [
         hp: 120,
         attack: 18,
         image: 'https://static.wikia.nocookie.net/pokemon/images/2/21/001Bulbasaur.png'
-    }
+    },
+    {
+        name: 'Pikachu',
+        hp: 160,
+        attack: 20,
+        image: 'https://cdn.bulbagarden.net/upload/b/b8/025Pikachu_LG.png'
+    },
+    
 ]

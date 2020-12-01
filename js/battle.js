@@ -24,3 +24,69 @@
       and also wipe the cookies. 
     - Otherwise, present the user with a button to refresh the page and complete the next battle sequence.
 */
+
+const pokemonCookie = JSON.parse(Cookies.get("pokemon-battle"));
+
+Object.keys(pokemonCookie).map((key) => {
+  var element = document.querySelector(`.${key}`);
+  var img = element.querySelector("img");
+
+  img.src = pokemonCookie[key].pokemon.image;
+});
+
+const startGameButton = document.querySelector(".game-button");
+const battlelog = document.querySelector(".battlelog");
+
+function setGameButtonText() {
+  startGameButton.textContent = "Play Again!";
+}
+
+startGameButton.addEventListener("click", (e) => {
+  const playerAttack = pokemonCookie.player.pokemon.attack;
+  const playerCurrentHealth = pokemonCookie.player.currentHealth;
+
+  const cpuAttack = pokemonCookie.cpu.pokemon.attack;
+  const cpuCurrentHealth = pokemonCookie.cpu.currentHealth;
+
+  if (startGameButton.textContent === "Play Again!") {
+      window.location.href = "/";
+    }
+  
+
+  if (cpuCurrentHealth <= 0 && playerCurrentHealth <= 0) {
+      battlelog.innerHTML = `DRAW!!!`;
+  
+      setGameButtonText();
+  
+      return;
+    }
+  
+
+  if (cpuCurrentHealth <= 0) {
+      battlelog.innerHTML = `${pokemonCookie.player.pokemon.name} WINNER!!!`;
+  
+      setGameButtonText();
+  
+      return;
+    }
+  
+
+  if (playerCurrentHealth <= 0) {
+      battlelog.innerHTML = `${pokemonCookie.cpu.pokemon.name} WINNER!!!`;
+  
+      setGameButtonText();
+  
+      return;
+
+    }
+  
+
+  pokemonCookie.cpu.currentHealth = cpuCurrentHealth - playerAttack;
+  pokemonCookie.player.currentHealth = playerCurrentHealth - cpuAttack;
+
+  Cookies.set("pokemon-battle", pokemonCookie);
+
+  window.location.href = "/battle.html";
+});
+
+battlelog.innerHTML = `cpu current health: ${pokemonCookie.cpu.currentHealth} / player current health: ${pokemonCookie.player.currentHealth}`;
