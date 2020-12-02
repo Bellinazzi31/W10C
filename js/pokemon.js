@@ -48,6 +48,18 @@ const pokemon = [
         image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png'
     },
     {
+        name: 'Haunter',
+        hp: 160,
+        attack: 24,
+        image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/093.png'
+    },
+    {
+        name: 'Mr. Mime',
+        hp: 165,
+        attack: 22,
+        image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/122.png'
+    },
+    {
         name: 'Mew',
         hp: 250,
         attack: 30,

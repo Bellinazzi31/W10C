@@ -80,9 +80,9 @@ startGameButton.addEventListener("click", (e) => {
 
     }
   
-
-  pokemonCookie.cpu.currentHealth = cpuCurrentHealth - playerAttack;
   pokemonCookie.player.currentHealth = playerCurrentHealth - cpuAttack;
+  pokemonCookie.cpu.currentHealth = cpuCurrentHealth - playerAttack;
+  
 
   Cookies.set("pokemon-battle", pokemonCookie);
 
