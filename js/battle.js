@@ -72,21 +72,21 @@ startGameButton.addEventListener("click", (e) => {
   
 
   if (playerCurrentHealth <= 0) {
+
       battlelog.innerHTML = `${pokemonCookie.cpu.pokemon.name} WINNER!!!`;
   
       setGameButtonText();
   
       return;
-
     }
   
-  pokemonCookie.player.currentHealth = playerCurrentHealth - cpuAttack;
+
   pokemonCookie.cpu.currentHealth = cpuCurrentHealth - playerAttack;
-  
+  pokemonCookie.player.currentHealth = playerCurrentHealth - cpuAttack;
 
   Cookies.set("pokemon-battle", pokemonCookie);
 
   window.location.href = "/battle.html";
 });
 
-battlelog.innerHTML = `cpu current health: ${pokemonCookie.cpu.currentHealth} / player current health: ${pokemonCookie.player.currentHealth}`;
+battlelog.innerHTML = `player current health: ${pokemonCookie.player.currentHealth} / cpu current health: ${pokemonCookie.cpu.currentHealth}`;

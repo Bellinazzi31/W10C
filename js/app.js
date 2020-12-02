@@ -26,7 +26,7 @@ function startGame(index) {
     Cookies.set("pokemon-battle", game);
   
     window.location.href = "/battle.html";
-  }
+}
   
   // Map function to create a choice button for each Pokemon in the list
   pokemon.map(function (choice, index) {
